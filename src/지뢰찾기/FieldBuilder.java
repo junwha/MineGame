@@ -1,9 +1,9 @@
-package Áö·ÚÃ£±â;
+package ì§€ë¢°ì°¾ê¸°;
 
 public class FieldBuilder extends Thread {
 	private int[][] mineCoordinates = new int[MineGame.XY][MineGame.XY];
 	private int[][] peripheryMineQuantity = new int[MineGame.XY][MineGame.XY];
-	// periphery:ÁÖÀ§,¿Ü¸é,µÑ·¹ quantity:¾ç Áï,ÁÖÀ§¿¡ ÀÖ´Â Áö·ÚÀÇ ¼ö¸¦ ³ªÅ¸³»´Â ÇÊµåÀÓ.
+	// periphery:ì£¼ìœ„,ì™¸ë©´,ë‘˜ë ˆ quantity:ì–‘ ì¦‰,ì£¼ìœ„ì— ìˆëŠ” ì§€ë¢°ì˜ ìˆ˜ë¥¼ ë‚˜íƒ€ë‚´ëŠ” í•„ë“œì„.
 
 	public FieldBuilder() {
 		while(MineGame.XY==0||MineGame.Mine==0){
@@ -12,12 +12,12 @@ public class FieldBuilder extends Thread {
 			} catch (InterruptedException e) {
 			}
 		}
-		// ·¥´ı Áö·Ú À§Ä¡ 1Â÷¿ø ¹è¿­·Î ¾ò±â
+		// ëœë¤ ì§€ë¢° ìœ„ì¹˜ 1ì°¨ì› ë°°ì—´ë¡œ ì–»ê¸°
 		RandomMines random = new RandomMines();
-		// ¾òÀº Áö·Ú À§Ä¡¸¦ 2Â÷¿ø ¹è¿­·Î º¯°æÇØ ÁÂÇ¥¸¦ ÁöÁ¤ÇÒ ¼ö ÀÖµµ·Ï ¸¸µé±â
+		// ì–»ì€ ì§€ë¢° ìœ„ì¹˜ë¥¼ 2ì°¨ì› ë°°ì—´ë¡œ ë³€ê²½í•´ ì¢Œí‘œë¥¼ ì§€ì •í•  ìˆ˜ ìˆë„ë¡ ë§Œë“¤ê¸°
 		this.mineCoordinates = random.getrandomMines();
-		// ÀÚ½ÅÀÌ Á¢ÇÑ Áö·ÚÀÇ ¼ö¸¦ ³ªÅ¸³»´Â ÇÊµå
-		// PeripheryCounter¿¡ Áö·Ú À§Ä¡¸¦ Àü¼ÛÇØ ÁÖÀ§ Áö·Ú ¼ö°¡ ±â·ÏµÈ ¹è¿­À» get
+		// ìì‹ ì´ ì ‘í•œ ì§€ë¢°ì˜ ìˆ˜ë¥¼ ë‚˜íƒ€ë‚´ëŠ” í•„ë“œ
+		// PeripheryCounterì— ì§€ë¢° ìœ„ì¹˜ë¥¼ ì „ì†¡í•´ ì£¼ìœ„ ì§€ë¢° ìˆ˜ê°€ ê¸°ë¡ëœ ë°°ì—´ì„ get
 		PeripheryCounter counter = new PeripheryCounter(mineCoordinates);
 		this.peripheryMineQuantity = counter.getPeripheryMineQuantity();
 	}
